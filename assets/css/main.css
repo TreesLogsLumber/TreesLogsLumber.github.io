@@ -135,7 +135,7 @@ input, select, textarea {
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		color: #787878;
+		color: rgba(255, 255, 255, 0.835);
 		font-weight: 400;
 		line-height: 1em;
 		margin: 0 0 1em 0;
@@ -2607,12 +2607,12 @@ input, select, textarea {
 		justify-content: space-between;
 		background-color: #1f1815;
 		background-attachment: scroll,								scroll;
-		background-image: url("images/overlay.png"), url("../../images/Wood-grain.jpg");
+		background-image: url("images/overlay.png"), url("../../images/cover.jpg");
 		background-position: top left,							top left;
 		background-repeat: repeat,								no-repeat;
-		background-size: auto,								150%;
+		background-size: auto,								100%;
 		color: rgba(255, 255, 255, 0.5);
-		height: 100%;
+		height: 110%;
 		left: 0;
 		padding: 8em 4em;
 		position: fixed;
@@ -2636,6 +2636,7 @@ input, select, textarea {
 			-ms-flex-grow: 1;
 			flex-grow: 1;
 			margin: 0 0 2em 0;
+			padding-top: 70%;
 		}
 
 		#header strong, #header b {
@@ -2701,6 +2702,14 @@ input, select, textarea {
 		max-width: 54em;
 		padding: 8em 4em 4em 4em;
 		width: calc(100% - 35%);
+		background-color: #1f1815;
+		background-attachment: scroll,								scroll;
+		background-image: 
+		url("images/overlay.png"),
+		url("../../images/Wood-grain.jpg");
+		background-position: top left,							top left;
+		background-repeat: repeat,								no-repeat;
+		background-size: auto,								100%;
 	}
 
 		#main > section {
@@ -3157,6 +3166,7 @@ input, select, textarea {
 
 			header.major h2 {
 				font-size: 1.35em;
+				
 			}
 
 		/* List */
@@ -3234,3 +3244,49 @@ input, select, textarea {
 			}
 
 	}
+
+	/* Add these animation styles at the end of your main.css file */
+
+@keyframes slideOut {
+	from {
+	  transform: translateX(0);
+	  opacity: 1;
+	}
+	to {
+	  transform: translateX(-100%);
+	  opacity: 0;
+	}
+  }
+  
+  @keyframes slideIn {
+	from {
+	  transform: translateX(100%);
+	  opacity: 0;
+	}
+	to {
+	  transform: translateX(0);
+	  opacity: 1;
+	}
+  }
+
+  #carousel-container {
+	display: flex;
+	width: 100%;
+	height: 100%;
+	border: 2px solid red;
+}
+
+.carousel-image {
+	position: absolute;
+	width: 50%;
+	height: auto;
+	border-radius: 8px;
+	object-fit: cover;
+  }
+  
+  /* Initially hide all images except the first one */
+  .carousel-image:not(:first-child) {
+	opacity: 0;
+	pointer-events: none;
+  }
+  
